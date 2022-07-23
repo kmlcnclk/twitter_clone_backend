@@ -1,0 +1,25 @@
+version: '3.14'
+services:
+  twitter_clone_backend:
+    build: .
+    ports:
+      - 5000:5000
+    depends_on:
+      - mongodb
+      - redis
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+  rabbitmq:
+    image: rabbitmq
+    ports:
+      - 5672:5672
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - /db/mongo:/data/db
+volumes:
+  mongodb:
