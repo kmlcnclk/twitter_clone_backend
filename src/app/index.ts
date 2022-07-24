@@ -41,7 +41,7 @@ class App {
 
   private initializeMiddlewares() {
     // buradaki cors çalışıyor mu ona bak
-    this.app.use(cors({ origin: 'http://localhost:3000' }));
+    this.app.use(cors({ origin: '*' }));
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: false }));
     this.app.use(deserializeUser);
